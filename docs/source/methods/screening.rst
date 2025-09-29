@@ -13,6 +13,14 @@ These govern the electron–hole interaction and are used to build the interacti
    :local:
    :depth: 2
 
+Xatu also supports three interaction potentials in reciprocal space to compute the interaction matrix elements:
+
+1. **Bare Coulomb potential**
+2. **Rytova–Keldysh potential**
+3. **Numerical RPA screened potential**
+
+These potentials model the electron–hole interaction in momentum space through the 2D Fourier transform of the real-space potentials: Coulomb, Rytova–Keldysh and the screened potential with discrete translation symmetry.
+
 Coulomb Potential
 ===================
 
@@ -57,3 +65,25 @@ Anisotropic Screening
 Xatu supports anisotropic screening in the Rytova–Keldysh model by allowing directional dependence in the screening length. This is implemented by constructing an effective vector :math:`\mathbf{r}_0 = (r_{0}^{x}, r_{0}^{y}, r_{0}^{z})` , and rescaling the coordinates accordingly.
 
 This allows the screening environment to be tuned independently along in-plane and out-of-plane directions -- a generalization that extends beyond conventional isotropic models.
+
+Numerical RPA Screened Potential
+=================================
+
+Xatu can compute the microscopic RPA dielectric function 
+
+.. math::
+   \varepsilon_{\bm{G}\bm{G}'}(\bm{q}) = \delta_{\bm{G}\bm{G}'} - v_c(\bm{q}+\bm{G}) \chi^0_{\bm{G}\bm{G}'}(\bm{q}) ,
+
+with a symmetrization operation :math:`\varepsilon_{\bm{G}\bm{G}'}(\bm{q}) \to \varepsilon_{\bm{G}\bm{G}'}(\bm{q}) \times \sqrt{v_c(\bm{q}+\bm{G})/v_c(\bm{q}+\bm{G}')}`, :math:`v_c(\bm{q})` is the 2D Fourier transform of the Coulomb potential given by
+
+.. math::
+   v_c(\bm{q}) = \frac{e^2}{2 \pi \varepsilon_0 |\bm{q}|}\,,
+
+
+and :math:`\chi^0` is the independent-particle polarizability (or the irreducible polarizability within RPA), which for time-reversal symmetric systems is given by
+
+.. math::
+   \chi^0_{\bm{G}\bm{G}'}(\bm{q}) = \frac{2}{A}  \sum_{vc,\bm{k} \sigma} \frac{\langle c,\bm{k}| e^{-i(\bm{q}+\bm{G})\cdot\bm{r}}|v,\bm{k}+\bm{q}\rangle  \langle v,\bm{k}+\bm{q}| e^{i(\bm{q}+\bm{G}')\cdot\bm{r}}|c,\bm{k}\rangle^*}{\epsilon_{v,\bm{k} + \bm{q}} - \epsilon_{c,\bm{k}} }\,.
+
+
+The matrix elements in the sum are computed for Bloch states written within the linear combination of atomic orbitals (LCAO) approximation, and in the point-like orbital approximation.
