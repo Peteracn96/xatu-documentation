@@ -72,15 +72,15 @@ Numerical RPA Screened Potential
 Xatu can compute the microscopic RPA dielectric function 
 
 .. math::
-   \varepsilon_{\bm{G}\bm{G}'}(\bm{q}) = \delta_{\bm{G}\bm{G}'} - v_c(\bm{q}+\bm{G}) \chi^0_{\bm{G}\bm{G}'}(\bm{q}) ,
+   \varepsilon_{\bm{G}\bm{G}'}(\bm{q}) = \delta_{\bm{G}\bm{G}'} - \sqrt{v_c(\bm{q}+\bm{G})} \chi^0_{\bm{G}\bm{G}'}(\bm{q}) \sqrt{v_c(\bm{q}+\bm{G}'')},
 
-with a symmetrization operation :math:`\varepsilon_{\bm{G}\bm{G}'}(\bm{q}) \to \varepsilon_{\bm{G}\bm{G}'}(\bm{q}) \times \sqrt{v_c(\bm{q}+\bm{G})/v_c(\bm{q}+\bm{G}')}`, :math:`v_c(\bm{q})` is the 2D Fourier transform of the Coulomb potential given by
+in its symmetric form, where :math:`v_c(\bm{q})` is the 2D Fourier transform of the Coulomb potential given by
 
 .. math::
-   v_c(\bm{q}) = \frac{e^2}{2 \pi \varepsilon_0 |\bm{q}|}\,,
+   v_c(\bm{q}) = \frac{e}{2 \varepsilon_0 |\bm{q}|}\,,
 
 
-and :math:`\chi^0` is the independent-particle polarizability (or the irreducible polarizability within RPA), which for time-reversal symmetric systems is given by
+and :math:`\chi^0` is the independent-particle polarizability (or the irreducible polarizability within RPA), which for gapped time-reversal symmetric systems is given by
 
 .. math::
    \chi^0_{\bm{G}\bm{G}'}(\bm{q}) = \frac{2}{A}  \sum_{vc,\bm{k} \sigma} \frac{\langle c,\bm{k}| e^{-i(\bm{q}+\bm{G})\cdot\bm{r}}|v,\bm{k}+\bm{q}\rangle  \langle v,\bm{k}+\bm{q}| e^{i(\bm{q}+\bm{G}')\cdot\bm{r}}|c,\bm{k}\rangle^*}{\epsilon_{v,\bm{k} + \bm{q}} - \epsilon_{c,\bm{k}} }\,.
