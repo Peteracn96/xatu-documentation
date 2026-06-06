@@ -72,7 +72,7 @@ Numerical RPA Screened Potential
 Xatu can compute the microscopic RPA dielectric function 
 
 .. math::
-   \epsilon_{\bm{G}\bm{G}'}(\bm{q}) = \delta_{\bm{G}\bm{G}'} - \sqrt{v_c(\bm{q}+\bm{G})} \chi^0_{\bm{G}\bm{G}'}(\bm{q}) \sqrt{v_c(\bm{q}+\bm{G}'')}
+   \epsilon_{\bm{G}\bm{G}'}(\bm{q}) = \delta_{\bm{G}\bm{G}'} - \sqrt{v_c(\bm{q}+\bm{G})} \chi^0_{\bm{G}\bm{G}'}(\bm{q}) \sqrt{v_c(\bm{q}+\bm{G}')}
 
 in its symmetric form, where :math:`v_c(\bm{q})` is the 2D Fourier transform of the Coulomb potential given by
 
