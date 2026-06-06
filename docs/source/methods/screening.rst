@@ -72,7 +72,7 @@ Numerical RPA Screened Potential
 Xatu can compute the microscopic RPA dielectric function 
 
 .. math::
-   \varepsilon_{\bm{G}\bm{G}'}(\bm{q}) = \delta_{\bm{G}\bm{G}'} - \sqrt{v_c(\bm{q}+\bm{G})} \chi^0_{\bm{G}\bm{G}'}(\bm{q}) \sqrt{v_c(\bm{q}+\bm{G}'')},
+   \epsilon_{\bm{G}\bm{G}'}(\bm{q}) = \delta_{\bm{G}\bm{G}'} - \sqrt{v_c(\bm{q}+\bm{G})} \chi^0_{\bm{G}\bm{G}'}(\bm{q}) \sqrt{v_c(\bm{q}+\bm{G}'')}
 
 in its symmetric form, where :math:`v_c(\bm{q})` is the 2D Fourier transform of the Coulomb potential given by
 
@@ -86,4 +86,4 @@ and :math:`\chi^0` is the independent-particle polarizability (or the irreducibl
    \chi^0_{\bm{G}\bm{G}'}(\bm{q}) = \frac{2}{A}  \sum_{vc,\bm{k} \sigma} \frac{\langle c,\bm{k}| e^{-i(\bm{q}+\bm{G})\cdot\bm{r}}|v,\bm{k}+\bm{q}\rangle  \langle v,\bm{k}+\bm{q}| e^{i(\bm{q}+\bm{G}')\cdot\bm{r}}|c,\bm{k}\rangle^*}{\epsilon_{v,\bm{k} + \bm{q}} - \epsilon_{c,\bm{k}} }\,.
 
 
-The matrix elements in the sum are computed for Bloch states written within the linear combination of atomic orbitals (LCAO) approximation, and in the point-like orbital approximation.
+The matrix elements in the sum are computed for Bloch states written within the linear combination of atomic orbitals (LCAO) approximation and in the point-like orbital approximation.
