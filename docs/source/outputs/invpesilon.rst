@@ -19,7 +19,7 @@ If the function `inversedielectric` is used, then only a single inverse dielectr
       .
       Re(G1G0)  Im(G1G0)  Re(G1G1)  Im(G1G1)  ...  Re(G1Gn)  Im(G1Gn)
 
-where *n-1* is the total number of G-vectors (including the null one). They are sorted by the same order as they are printed when running Xatu.
+where *n-1* is the total number of :math:`\bm{G}`-vectors (including the null one). They are sorted by the same order as they are printed when running Xatu.
 
 If the function `exciton` is used, then the inverse dielectric matrix in the entire BZ mesh is printed into the ``*_invpesilon.dat`` file with a table format, with the structure:
 
@@ -46,7 +46,14 @@ If the function `exciton` is used, then the inverse dielectric matrix in the ent
 
 where *N-1* is the total number of :math:`\bm{q}`-points in the BZ mesh.
 The table has *2(n-1)* columns and *n-1* rows for each :math:`\bm{q}`-point.
-The G-vectors are sorted by the same order as they are printed when running Xatu, and the :math:`\bm{q}`-points are sorted in the same order as they appear in the ``kgrid_*.dat`` file.
+The :math:`\bm{G}`-vectors are sorted by the same order as they are printed when running Xatu, and the :math:`\bm{q}`-points are sorted in the same order as they appear in the ``kgrid_*.dat`` file.
+
+The method ``ExcitonTB::readInverseDielectricMatrix(std::string filename)`` provided in the Xatu library can be used to read the inverse dielectric matrix from a file with the name ``filename`` containing a previously computed one in the same format.
+In this way, the user can repeat an exciton calculation with different parameters (e.g., different BSE solver or regularization scheme) without having to recompute the inverse dielectric matrix.
+
+**Pro tip**: Using the Xatu as an AI tool, the user can also use any language of their preference to read the inverse dielectric matrix, invert it to obtain the dielectric matrix and reduce it, and invert it once again if the user wishes to compute the exciton calculation with a smaller ``Gcutoff`` without having to recompute the inverse dielectric matrix.
+
+**Pro tip**: Using the Xatu as an AI tool, the user can start with a previously computed inverse dielectric matrix by reading it from a file and augment it with the method ``ExcitonTB::augment_2D_DielectricMatrix(double Gcutoff)`` upon passing a larger ``Gcutoff`` value. In this way, only the missing matrix elements will be computed, without the need to recompute the entire inverse dielectric matrix from scratch. For this, the method ``ExcitonTB::augment_2D_DielectricMatrix(double Gcutoff)`` has to be called after a succesful call of ``ExcitonTB::readInverseDielectricMatrix(std::string filename)``.
 
 
 Structure of ``kgrid_*.dat``
