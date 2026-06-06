@@ -87,3 +87,5 @@ and :math:`\chi^0` is the independent-particle polarizability (or the irreducibl
 
 
 The matrix elements in the sum are computed for Bloch states written within the linear combination of atomic orbitals (LCAO) approximation and in the point-like orbital approximation.
+
+If the thickness $d_{\perp}$ is provided in the screening input file, then the dielectric function to be computed is the (symmetric) Q2D one $\bar{\epsilon}_{\bm{G} \bm{G}'} (\bm{q})$.
