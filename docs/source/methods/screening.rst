@@ -9,10 +9,6 @@ Xatu supports two real-space interaction potentials used in the Bethe-Salpeter E
 
 These govern the electron–hole interaction and are used to build the interaction kernel.
 
-.. contents::
-   :local:
-   :depth: 2
-
 Xatu also supports three interaction potentials in reciprocal space to compute the interaction matrix elements:
 
 1. **Bare Coulomb potential**
@@ -20,6 +16,10 @@ Xatu also supports three interaction potentials in reciprocal space to compute t
 3. **Numerical RPA screened potential**
 
 These potentials model the electron–hole interaction in momentum space through the 2D Fourier transform of the real-space potentials: Coulomb, Rytova–Keldysh and the screened potential with discrete translation symmetry.
+
+.. contents::
+   :local:
+   :depth: 2
 
 Coulomb Potential
 ===================
@@ -88,4 +88,4 @@ and :math:`\chi^0` is the independent-particle polarizability (or the irreducibl
 
 The matrix elements in the sum are computed for Bloch states written within the linear combination of atomic orbitals (LCAO) approximation and in the point-like orbital approximation.
 
-If the thickness $d_{\perp}$ is provided in the screening input file, then the dielectric function to be computed is the (symmetric) Q2D one $\bar{\epsilon}_{\bm{G} \bm{G}'} (\bm{q})$.
+If the thickness :math:`d_{\perp}` is provided in the screening input file, then the dielectric function to be computed is the symmetric quasi-2D one :math:`\bar{\epsilon}_{\bm{G} \bm{G}'} (\bm{q})`.
