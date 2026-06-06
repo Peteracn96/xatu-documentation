@@ -9,7 +9,7 @@ Basic Command
 
 The program expects at least one file describing the system and a second file describing the excitonic properties.
 
-For thigh-binding ``.model`` files, the command to execute is
+For tight-binding ``.model`` files, the command to execute is
 
 .. code-block:: bash
 
@@ -79,6 +79,9 @@ Diagonalize the Bloch Hamiltonian at k-points specified in a file. Does not comp
 
 ``-f, --format model | hdf5``  
 Specify format of the system file. Defaults to `model`. Note: HDF5 support requires compilation with `HDF5=1`.
+
+``-z, --screening screeningfile``  
+Enable screening functionalities. An exciton file must be provided alongside the screening file.
 
 Examples
 ========
