@@ -89,3 +89,29 @@ and :math:`\chi^0` is the independent-particle polarizability (or the irreducibl
 The matrix elements in the sum are computed for Bloch states written within the linear combination of atomic orbitals (LCAO) approximation and in the point-like orbital approximation.
 
 If the thickness :math:`d_{\perp}` is provided in the screening input file, then the dielectric function to be computed is the symmetric quasi-2D one :math:`\bar{\epsilon}_{\bm{G} \bm{G}'} (\bm{q})`.
+
+To illustrate the new functionalities, we show below the macroscopic dielectric function of monolayer hBN computed with our implementation, and explain to the user how they can obtain it themselves.
+
+.. note::
+
+   📄 **Reference Paper:**   
+   `Microscopic screening theory for excitons in two-dimensional materials: A bridge between effective models and ab initio descriptions, arxiv 2603.10966 <https://arxiv.org/abs/2603.10966>`_
+
+.. image:: ../images/epsilon_vs_q_hBN.jpg
+   :width: 75%
+   :align: center
+
+The continuous black curve above was obtained in Phys. Rev. B 92, 245123 (2015), while the dashed black one was obtained using the QEH package for Python from Nano Lett. 2015, 15, 7, 4616-462.
+
+With the script called ``write_screening.cpp`` in the main folder and using the CRYSTAL model file `hBN_base_HSE0.outp` for monolayer hBN with the HSE06 functional, included among the models provided with Xatu, we obtain the red and blue curves with the new screening functionalities.
+The script can be compiled like any other in the main folder. To run it, execute the following command in the terminal:
+
+.. code-block:: bash
+
+   ./write_screening ../examples/material_models/DFT/hBN_base_HSE06.outp ../examples/excitonconfig/hBN_test.txt ../examples/screeningconfig/hBN_DFT_screening.txt <name_of_q_points_file>.dat
+
+similarly to the command-line usage of the `xatu` binary  (but without any flags), and providing the name of the input file containing the list of q-points at the end of the command. Such a file is already provided in the data folder.
+
+The method which reads the input file containing the list of q-points and computes the dielectric matrix accordingly is called `ExcitonTB::compute_2D_DielectricMatrix(file_name)`, which can be identified in the script.
+To enable the Q2D calculation, a finite value for the thickness parameter must be provided in the screening input file, as mentioned above.
+After concluding the computation, the file containing the inverse dielectric matrix at each q-point is created, analogously to when running the `xatu` binary to compute the exciton using the RPA screened Coulomb potential (see the previous section).
