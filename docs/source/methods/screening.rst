@@ -112,6 +112,6 @@ The script can be compiled like any other in the main folder. To run it, execute
 
 similarly to the command-line usage of the `xatu` binary  (but without any flags), and providing the name of the input file containing the list of q-points at the end of the command. Such a file is already provided in the data folder.
 
-The method which reads the input file containing the list of q-points and computes the dielectric matrix accordingly is called `ExcitonTB::compute_2D_DielectricMatrix(file_name)`, which can be identified in the script.
+The method which reads the input file containing the list of q-points and computes the dielectric matrix accordingly is called ``ExcitonTB::compute_2D_DielectricMatrix(file_name)``, which can be identified in the script.
 To enable the Q2D calculation, a finite value for the thickness parameter must be provided in the screening input file, as mentioned above.
 After concluding the computation, the file containing the inverse dielectric matrix at each q-point is created, analogously to when running the `xatu` binary to compute the exciton using the RPA screened Coulomb potential (see the previous section).
