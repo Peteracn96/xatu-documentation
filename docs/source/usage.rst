@@ -40,8 +40,11 @@ Available Options
 ``-h, --help``  
 Print a help message and exit.
 
-``-s, --states nstates``  
-Number of exciton states to compute and output (default: 8).
+``-n, --states nstates``  
+Number of exciton states to be written in `.states`, `.eigval` files and in the terminal (default: 8).
+
+``-t, --encut nstates``  
+Overrides `-n` flag. Print excitons up to the energy cuttof value (defaults to 8 exciton states).
 
 ``-p, --precision decimals``  
 Set the number of decimal places for energy output (default: 6).
@@ -54,10 +57,10 @@ Indicate that the system file is in Wannier90 output format. You must specify th
 
 ``-eck, --energy / --eigenstates / --kwf``  
 Flags to write exciton outputs:
+
 * `-e`: energies
 * `-c`: eigenvectors
 * `-k`: reciprocal-space densities  
-These can be combined: e.g., `-ek`.
 
 ``-r, --rswf [holeIndex] [-r ncells]``  
 Write real-space wavefunction amplitudes. The hole index and number of unit cells can be specified.
@@ -96,7 +99,7 @@ Run with **custom number of states and output eigenstates and absorption**:
 
 .. code-block:: bash
 
-   xatu -s 10 -cek -a system.model exciton.in
+   xatu -s 10 -kace system.model exciton.in
 
 Run with **DFT input and extract real-space amplitudes**:
 
